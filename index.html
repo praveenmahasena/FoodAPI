@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="./index.css" rel="stylesheet" type="text/css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app" v-cloak>
+      <div class="for-button">
+          <span class='cap'>Get Food Here</span>
+        <span><button @click.prevent="getMeal">Click Here</button></span>
+      </div>
+      <div class="main-conetnt">
+        <div class="food-tittle">{{all.strMeal}}</div>
+        <div class="the-whole">
+          <div class="for ingredians-and-img">
+            <div class="imgs">
+              <img
+                :src="all.strMealThumb"
+                v-if="all.strMealThumb"
+                alt="the-food"
+              />
+            </div>
+            <div class="items">
+              <div class="for-the-ingre">
+                <ul>
+                  <li v-for="(ing,index) in mesure" :key="index">
+                    <span v-if="ing"> {{ing}}</span>
+                  </li>
+                </ul>
+              </div>
+              <div class="fo-the-mesure">
+                <ul>
+                  <li v-for="(mes,index) in ingre" :key="index">
+                    <span v-if="mes.length">{{mes}}</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="for-the-description">{{all.strInstructions}}</div>
+        </div>
+      </div>
+    </div>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="./index.js"></script>
+  </body>
+</html>
